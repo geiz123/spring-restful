@@ -21,7 +21,8 @@ public class SpringConfig {
         //ret.setUrl("jdbc:sqlite:/home/g/work/sqlite/testdb");
         //ret.setUrl("jdbc:sqlite:/home/g/Desktop/database/chinookrmd");
         
-        ret.setUrl("jdbc:sqlite:C:\\Users\\VBACODOANH.VBA\\Downloads\\chinook.db");
+        //ret.setUrl("jdbc:sqlite:C:\\Users\\VBACODOANH.VBA\\Downloads\\chinook.db");
+        ret.setUrl("jdbc:sqlite:E:\\work\\database\\sqlite\\chinook.db");
         
         return ret;
     }

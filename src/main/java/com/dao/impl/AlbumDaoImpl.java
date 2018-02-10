@@ -17,21 +17,27 @@ public class AlbumDaoImpl implements AlbumDao {
 
     @Override
     public List<Album> getAll() {
-        List<Album> employees = jdbcTemplate.query("select * from albums", new AlbumMapper());
-
-        return employees;
+        List<Album> albums = jdbcTemplate.query("select * from albums", new AlbumMapper());
+        return albums;
     }
 
     @Override
-    public List<Album> getByName(String name) {
-        // TODO Auto-generated method stub
-        return null;
+    public Album getByTitle(String title) {
+        Album album = jdbcTemplate.queryForObject("select * from albums where title = ?", new Object[]{title}, new AlbumMapper());
+        return album;
     }
 
     @Override
     public Album getById(int id) {
-        // TODO Auto-generated method stub
-        return null;
+        Album album = jdbcTemplate.queryForObject("select * from albums where albumid = ?", new Object[]{id}, new AlbumMapper());
+        return album;
+    }
+
+    @Override
+    public List<Album> searchByTitle(String title) {
+        title = '%'+title+'%';
+        List<Album> albums = jdbcTemplate.query("select * from albums where title like ?", new Object[]{title}, new AlbumMapper());
+        return albums;
     }
 
 }

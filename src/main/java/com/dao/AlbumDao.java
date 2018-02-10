@@ -7,7 +7,9 @@ import com.entity.Album;
 public interface AlbumDao {
     public List<Album> getAll();
 
-    public List<Album> getByName(String name);
+    public Album getByTitle(String title);
 
     public Album getById(int id);
+    
+    public List<Album> searchByTitle(String title);
 }

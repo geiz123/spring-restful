@@ -30,8 +30,8 @@ public class EmployeeDayImpl implements EmployeeDao {
 
     @Override
     public Employee getById(int id) {
-        // TODO Auto-generated method stub
-        return null;
+    	Employee employee = jdbcTemplate.queryForObject("select * from employees where employeeid = ?", new Object[]{id}, new EmployeeMapper());
+        return employee;
     }
 
 }
